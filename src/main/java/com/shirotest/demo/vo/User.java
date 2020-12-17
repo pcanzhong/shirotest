@@ -1,22 +1,28 @@
 package com.shirotest.demo.vo;
 
 
-import java.util.List;
-
 public class User {
 
 
-    private Long id;
     private String name;
-    private String password;
-    private List<Role> roles;
+    private String age;
+    private String pwd;
+    private String perms;
 
-    public Long getId() {
-        return id;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getPerms() {
+        return perms;
+    }
+
+    public void setPerms(String perms) {
+        this.perms = perms;
     }
 
     public String getName() {
@@ -27,19 +33,19 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                '}';
     }
 }

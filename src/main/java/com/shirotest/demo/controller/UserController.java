@@ -6,6 +6,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +57,7 @@ public class UserController {
         //执行登录方法，如果没有异常就说明OK了
         try {
             subject.login(token);//执行登录方法，如果没有异常就说明OK了
+
             return "index";
         } catch (UnknownAccountException e) {//用户名不存在
             model.addAttribute("msg", "用户名错误");
@@ -64,5 +66,10 @@ public class UserController {
             model.addAttribute("msg", "密码错误");
             return "login";
         }
+    }
+    @RequestMapping("/noauth")
+    @ResponseBody
+    public String noauth(){
+        return "未授权";
     }
 }
